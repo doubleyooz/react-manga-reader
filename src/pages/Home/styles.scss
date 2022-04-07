@@ -1,0 +1,41 @@
+.home-container {
+    h1 {
+        width: 60vw;
+        height: 500px;
+        word-wrap: break-word;
+    }
+    .last-updated {
+        max-width: 1000px;
+        padding: 20px 1% 0px 5%;
+        overflow-x: scroll;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            max-width: 915px;
+            width: 100%;
+            h2 {
+                font-size: 35px;
+                font-weight: lighter;
+            }
+            .next {
+                padding-top: 45px;
+                img {
+                    width: 24px;
+                    height: 24px;
+                    &:hover {
+                        background-color: rgb(241, 236, 236);
+                    }
+                }
+            }
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            max-height: 425px;
+            margin: 0px 0px 0px 0px;
+        }
+    }
+}

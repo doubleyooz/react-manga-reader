@@ -1,0 +1,17 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    .popup-inner {
+        position: relative;
+        width: 100%;
+        max-width: 640px;
+        padding: 32px;
+
+        background-color: black;
+        color: white;
+    }
+}

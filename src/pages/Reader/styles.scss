@@ -1,0 +1,109 @@
+.reader {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+
+    .header-board {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100vw;
+        .left {
+            width: 10%;
+            .button {
+                display: table;
+                border-radius: 15%;
+                width: 50px;
+                height: 30px;
+
+                &:hover {
+                    background-color: rgb(212, 201, 224);
+                }
+
+                span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 0 5%;
+
+            width: 55%;
+
+            .title {
+                text-align: center;
+            }
+            .controllers {
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            width: 11%;
+
+            .controllers {
+                border: none;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+
+    .board {
+        min-height: 300px;
+
+        width: 100vw;
+        height: 100%;
+        text-align: center;
+
+        img {
+            width: 55%;
+            height: 55%;
+            min-width: 320px;
+            min-height: 200px;
+
+            cursor: pointer;
+        }
+    }
+    .footer-reader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        padding: 0px 40px 0px 40px;
+
+        .comments {
+        }
+
+        .rate {
+            display: flex;
+            flex-direction: row-reverse;
+
+            input {
+                visibility: hidden;
+                width: 0;
+            }
+
+            > input:checked ~ label {
+                color: #ffc700;
+            }
+            label {
+                cursor: pointer;
+                color: #c2bdc1;
+
+                &:hover {
+                    color: #c59b08;
+                }
+            }
+        }
+    }
+}

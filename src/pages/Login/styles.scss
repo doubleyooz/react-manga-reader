@@ -1,0 +1,104 @@
+.login-page{
+    background-color: rgb(142, 62, 167);
+    width: 100vw;
+    height: 100vw;
+    padding-top: 100px;
+    min-height: 582px;
+
+
+    .card{
+        background-color: rgb(41, 39, 39, 0.7);
+        width: 350px;
+        max-width: 100%;
+    
+        height: auto;
+        margin: auto;
+    
+        border-radius: 10px;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        padding: 20px 10px 20px 10px;
+
+        button{
+            margin-bottom: 20px;
+        }
+        
+       
+        form{
+            color: white;
+            height: auto;   
+            width: 100%;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        
+            margin-bottom: 20px;
+            .field {
+                display: flex;
+                flex-direction: column;    
+                margin-bottom: 20px;
+                
+                span{
+                    color: red;
+                    font-size: 10px;
+                    margin-left: 10%;
+                   
+                }
+
+                input{
+                    border-radius: 10%;
+                    width: 80%;
+                    height: 20px;
+                
+                    align-self: center;
+                
+                   
+                
+                    font-size: 14px;
+                    font-weight: 500;
+                    font-family: Roboto, sans-serif;
+                
+                }
+               
+            
+            }
+
+            .submit{
+                background-color: rgb(92, 48, 133);
+                color: white;
+                
+                width: 80%;
+                align-self: center;
+            
+                border-radius: 5px;
+                border: 1px solid transparent;
+                font-size: 18px;
+                font-weight: 500;
+                font-family: Roboto, sans-serif;
+                
+            }
+        }
+
+        .footer {
+            color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%
+
+            a{
+                color: white;
+                
+              
+            }
+            
+        }
+    
+    }
+
+}
+

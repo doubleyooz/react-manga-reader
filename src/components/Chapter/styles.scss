@@ -1,0 +1,44 @@
+.chapter-container {
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: rgb(64, 53, 77);
+        width: 100%;
+        padding: 5px 10px 5px 10px;
+        &:hover {
+            background-color: rgb(31, 22, 41);
+        }
+        .box-1 {
+            display: flex;
+            flex-direction: row;
+
+            .title {
+                width: 200px;
+                font-size: 20px;
+                color: black;
+            }
+
+            .number {
+                font-size: 15px;
+                color: black;
+            }
+
+            .date {
+                font-size: 12px;
+            }
+        }
+
+        .box-2 {
+            margin: 0 0 0 20px;
+
+            h4 {
+                margin: 0;
+
+                &:hover {
+                    background-color: rgb(50, 31, 71);
+                }
+            }
+        }
+    }
+}

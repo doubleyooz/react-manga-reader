@@ -1,0 +1,68 @@
+.horizontal-navbar {
+    background-color: transparent;
+    width: 100vw;
+    margin: 0px;
+    top: 0;
+    height: 62px;
+    position: sticky;
+    padding-top: 6px;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        text-decoration: none;
+
+        .nav-button {
+            font-size: 30px;
+            display: inline;
+            padding-right: 18px;
+            padding-top: 28px;
+            padding-left: 18px;
+
+            color: #e5defa;
+
+            &:hover {
+                background-color: #41357c;
+            }
+        }
+    }
+
+    img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .menu {
+        .profile {
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            border-radius: 60px;
+
+            background-image: url('https://images.unsplash.com/photo-1598128558393-70ff21433be0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXJsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');
+            cursor: pointer;
+
+            margin-right: 20px;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        .options {
+            color: white;
+            background-color: #150d2e;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: 0.25s;
+        }
+
+        .options-display {
+            color: white;
+            background-color: #150d2e;
+            transform: scaleY(1);
+            transform-origin: top;
+            transition: 0.25s;
+        }
+    }
+}
