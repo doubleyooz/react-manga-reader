@@ -6,7 +6,7 @@ import { Context } from '../../contexts/AuthProvider';
 import Manga from '../../components/Activity';
 import api from '../../services/api';
 
-import arrowLeft from '../../assets/arrow-left.png';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 import './styles.scss';
 
@@ -89,30 +89,25 @@ export default function Home() {
     }, [fetch]); // <-- empty dependency array
 
     return (
-        <>
-            <div className="home-container">
-                {/*token ? <div className="div">auth</div> : <div className="div">not auth</div>*/}
+        <div className="home-container">
+            {/*token ? <div className="div">auth</div> : <div className="div">not auth</div>*/}
 
-                <div className="last-updated">
-                    <div className="header">
-                        <h2>Lastest Update</h2>
-                        <div className="next">
-                            <img
-                                src={arrowLeft}
-                                onClick={() => setFetch(!fetch)}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="box">
-                        {mangas.current.length !== 0 ? (
-                            mangas.current
-                        ) : (
-                            <div>no manga to be shown</div>
-                        )}
+            <div className="last-updated">
+                <div className="header">
+                    <h2>Lastest Update</h2>
+                    <div className="next">
+                        <AiOutlineArrowRight onClick={() => setFetch(!fetch)} />
                     </div>
                 </div>
+
+                <div className="box">
+                    {mangas.current.length !== 0 ? (
+                        mangas.current
+                    ) : (
+                        <div>no content to be shown</div>
+                    )}
+                </div>
             </div>
-        </>
+        </div>
     );
 }
