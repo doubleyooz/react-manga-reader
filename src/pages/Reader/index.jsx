@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './styles.scss';
 
 import { Context } from '../../contexts/AuthProvider';
@@ -10,7 +10,7 @@ require('dotenv').config();
 const Reader = (props) => {
     const { token, handleLogin } = useContext(Context);
 
-    const history = useHistory();
+    const navigator = useNavigate();
 
     const { manga_title, chapter_number } = useParams();
 
@@ -96,7 +96,7 @@ const Reader = (props) => {
     function nextChapter() {
         let f1 = function () {
             console.log(currentChapter);
-            history.push(
+            navigator(
                 `/Manga/${manga_title}/${
                     currentChapter + 1 >= manga.chapters.length
                         ? manga.chapters.length
@@ -120,7 +120,7 @@ const Reader = (props) => {
     function prevChapter() {
         let f1 = function () {
             console.log(currentChapter);
-            history.push(
+            navigator(
                 `/Manga/${manga_title}/${
                     currentChapter - 1 <= 0 ? 1 : currentChapter
                 }`
@@ -195,7 +195,7 @@ const Reader = (props) => {
                         <div
                             className="title"
                             onClick={() =>
-                                history.push(
+                                navigator(
                                     `/Manga/${manga_title.replace(' ', '%20')}`
                                 )
                             }

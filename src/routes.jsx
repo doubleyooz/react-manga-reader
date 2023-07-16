@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Reader from './pages/Reader';
 import ActivateAccount from './pages/ActivateAccount';
@@ -12,12 +11,12 @@ import User from './pages/User';
 
 import HorizontalMenu from './components/Menu/Horizontal';
 
-export default function Routes() {
+const Paths = () => {
     return (
         <div className="routes-container">
             <BrowserRouter>
                 <HorizontalMenu />
-                <Switch>
+                <Routes>
                     <Route exact path="/" component={Home} />
 
                     <Route path="/manga/:manga_title" exact component={Manga} />
@@ -35,8 +34,10 @@ export default function Routes() {
                     <Route path="/signin" exact component={Login} />
                     <Route path="/signup" exact component={Register} />
                     <Route path="/user" exact component={User} />
-                </Switch>
+                </Routes>
             </BrowserRouter>
         </div>
     );
-}
+};
+
+export default Paths;

@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 import './styles.scss';
 
 export default function Activity(props) {
-    let history = useHistory();
+    let navigator = useNavigate();
 
     console.log('rendered');
 
@@ -20,14 +20,14 @@ export default function Activity(props) {
                     props.data.cover
                 }
                 alt={props.data.title}
-                onClick={() => history.push(`/manga/${props.data.title}`)}
+                onClick={() => navigator(`/manga/${props.data.title}`)}
             />
 
             <div className="manga-info">
                 <div
                     className="manga-title"
                     onClick={() =>
-                        history.push(
+                        navigator(
                             `/Manga/${props.data.title.replace(' ', '%20')}/`,
                             { state: props.data }
                         )
@@ -50,7 +50,7 @@ export default function Activity(props) {
                                     props.data.uid + chapter.number
                                 ).toString()}
                                 onClick={() =>
-                                    history.push(
+                                    navigator(
                                         `/Manga/${props.data.title.replace(
                                             ' ',
                                             '%20'

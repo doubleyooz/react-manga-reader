@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Context } from '../../contexts/AuthProvider';
+import { useCheckAuth } from '../../shared/hooks/UseCheckAuth';
 import Manga from '../../components/Activity';
 import api from '../../services/api';
 
@@ -10,8 +10,8 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 
 import './styles.scss';
 
-export default function Home() {
-    const { token, setToken, handleLogin } = useContext(Context);
+const Home = () => {
+    const { token } = useCheckAuth();
 
     const mangas = useRef([]);
 
@@ -110,4 +110,6 @@ export default function Home() {
             </div>
         </div>
     );
-}
+};
+
+export default Home;

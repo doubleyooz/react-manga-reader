@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,12 +12,10 @@ import { Context } from '../../contexts/AuthProvider';
 import { signupSchema, passwordSchema } from '../../validations/UserValidation';
 import api from '../../services/api';
 
-require('dotenv').config();
-
 const Register = () => {
     const [activationToken, setActivationToken] = useState(null);
 
-    let history = useHistory();
+    const navigator = useNavigate();
 
     const { token, setToken } = useContext(Context);
 
@@ -59,7 +57,7 @@ const Register = () => {
             .then(async (response) => {
                 const goHome = () => {
                     setToken(response.data.metadata.token.toString());
-                    history.push('/');
+                    navigator('/');
                 };
 
                 console.log(response);

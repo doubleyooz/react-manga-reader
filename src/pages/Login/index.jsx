@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -17,7 +17,7 @@ require('dotenv').config();
 const Login = () => {
     const [activationToken, setActivationToken] = useState(null);
 
-    let history = useHistory();
+    const navigator = useNavigate();
 
     const { token, setToken } = useContext(Context);
 
@@ -74,7 +74,7 @@ const Login = () => {
             .then(async (response) => {
                 const goHome = () => {
                     setToken(response.data.metadata.token.toString());
-                    history.push('/');
+                    navigator('/');
                 };
 
                 console.log(response);

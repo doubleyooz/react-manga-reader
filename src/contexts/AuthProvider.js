@@ -1,44 +1,52 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 
-//import useAuth from './hooks/useAuth';
-import api from '../services/api';
+import { signIn } from '../services/api';
 
-const Context = createContext();
+const AuthContext = createContext({});
 
-function AuthProvider({ children }) {
-    const [token, setToken] = useState(undefined);
+export const AuthProvider = ({
+    children,
+}) => {
+    const [userData, setUserData] = useState({
+        name: null,
+        token: null,
+        email: null,
+        _id: null,
+        picture: null,
+    });
     const [loading, setLoading] = useState(true);
 
-    async function handleLogin() {
-        let config = {
-            auth: {
-                username: 'itachiut1r4@gmail.com',
-                password: 'Lucarneiro@0009',
-            },
-        };
+    async function handleSignIn(email, password) {
+        try {
+            const authResponse = await signIn(email, password);
 
-        await api
-            .get('sign-in', config)
-            .then(async (response) => {
-                const accessToken =
-                    await response.data.metadata.token.toString();
-                setToken(accessToken);
-            })
-            .catch((err) => {
-                console.log(err);
-                setToken(undefined);
-            });
+            console.log(authResponse);
+            if (authResponse) {
+                setUserData((prevState) => ({
+                    ...prevState,
+                    _id: authResponse.data.data._id,
+                    token: authResponse.data.metadata.accessToken,
+                }));
+            } else throw new Error('Login failed');
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
     }
 
-    /* const {
-    authenticated, loading, handleLogin, handleLogout,
-    } = useAuth();*/
+    const contextValue = {
+        setUserData,
+        signIn: handleSignIn,
+        userData,
+        loading,
+    };
 
     return (
-        <Context.Provider value={{ token, setToken, handleLogin }}>
+        <AuthContext.Provider value={contextValue}>
             {children}
-        </Context.Provider>
+        </AuthContext.Provider>
     );
-}
+};
 
-export { Context, AuthProvider };
+export default AuthContext;

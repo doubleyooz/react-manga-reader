@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 import wordmark from '../../../assets/wordmark.svg';
 import logo from '../../../assets/logo2.jpg';
-import { Context } from '../../../contexts/AuthProvider';
+
+import { useCheckAuth } from '../../../shared/hooks/UseCheckAuth';
 import './styles.scss';
 
 export default function Menu() {
     const [showOptions, setShowOptions] = useState(false);
 
-    const { token, setToken, handleLogin } = useContext(Context);
+    const { token, setToken, handleLogin } = useCheckAuth();
 
     return (
         <ul className="horizontal-navbar">

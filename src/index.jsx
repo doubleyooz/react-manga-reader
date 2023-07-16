@@ -1,9 +1,16 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import { AuthProvider } from './contexts/AuthProvider';
+import Routes from './routes';
+import './styles/global.scss';
 
-import App from './App';
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <div className="body">
+        <AuthProvider>
+            <Routes />
+        </AuthProvider>
+    </div>,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

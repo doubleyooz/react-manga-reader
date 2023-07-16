@@ -9,4 +9,13 @@ const api = axios.create({
     baseURL: process.env.REACT_APP_NOT_SECRET_CODE,
 });
 
-export default api;
+const signIn = async (email, password) => {
+    return await api.get(`/sign-in`, {
+        auth: {
+            username: email,
+            password: password,
+        },
+    });
+};
+
+export { signIn };
